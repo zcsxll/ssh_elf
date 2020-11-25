@@ -7,9 +7,10 @@ ZcsList::ZcsList()
 	ASSERT(setupterm(NULL, fileno(stdout), NULL) == 0, "");
 	rows_ = tigetnum((char*)"lines");
     cols_ = tigetnum((char*)"cols");
-	valid_rows_ = rows_ - 34;
+	valid_rows_ = rows_ - 10;
 	max_len_ = (cols_ - 12) / 3;
 	max_cnt_ = valid_rows_ * 3;
+	//printf("%d %d\n", valid_rows_, max_cnt_);
 
 	selected_ = -1;
 }
@@ -35,8 +36,7 @@ int ZcsList::init(const string &path)
 			continue;
 		ASSERT(name.length() <= max_len_, "length of \"%s\" > %d", name.c_str(), max_len_);
 		v.push_back(name);
-		ASSERT(items_.size() <= max_cnt_, "not implemented");
-
+		ASSERT(v.size() <= max_cnt_, "not implemented");
 	}
 	sort(v.begin(), v.end());
 

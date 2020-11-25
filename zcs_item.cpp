@@ -16,6 +16,8 @@ ZcsItem::ZcsItem(string &name, int row, int col,
 
 void ZcsItem::paint(int select)
 {
+	//printf("%d %d\n", row_, col_);
+	//return;
 	printf("\033[%d;%dH", row_, col_);
 	if(0 == select)
 		printf("\033[%d;%d;1m%s\033[0m", normal_front_color_, normal_back_color_, name_.c_str());
