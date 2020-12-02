@@ -24,6 +24,7 @@ int ZcsList::init(const string &path)
 	root_dir_ = path;
 
 	DIR *dir = opendir(path.c_str());
+	ASSERT(dir != NULL, "failed to open root dir [%s]", path.c_str());
 	struct dirent *d;
 	items_.clear();
 	vector<string> v;

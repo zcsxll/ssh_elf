@@ -9,7 +9,7 @@ using namespace std;
 
 const string get_conf_path()
 {
-	FILE *fp = popen("which ssh_elf", "r");
+	FILE *fp = popen("which se", "r");
 	char buf[256];
 	fgets(buf, sizeof(buf), fp);
 	pclose(fp);
