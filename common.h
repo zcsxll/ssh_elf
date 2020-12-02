@@ -56,6 +56,7 @@ using namespace std;
             ZPRED("%s:%d, ASSERT (%s) failed(", __FILE__, __LINE__, #cond);\
             ZPRED(format, ##__VA_ARGS__);\
             ZPRED(")\r\n");\
+			printf("\033[?25h");\
             exit(1);\
         }\
     }while(0)
